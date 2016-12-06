@@ -16,13 +16,11 @@ router.post('/r/request_customized_model', function(req, res, next) {
 
     var errors = req.validationErrors();
     if(errors) {
-        res.code = 400;
-        res.json({"message":errors});
+        res.json({"message":errors}, 400);
         return;
     }
 
-    res.code = 200;
-    res.json({'order_id':randomInt(0,Number.MAX_SAFE_INTEGER)});
+    res.json({'order_id':randomInt(0,Number.MAX_SAFE_INTEGER)}, 200);
 });
 
 function randomInt (low, high) {

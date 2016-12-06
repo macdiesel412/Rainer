@@ -9,12 +9,10 @@ router.get('/r/nonce_token', function(req, res, next) {
 
     var errors = req.validationErrors();
     if(errors) {
-        res.code = 401;
-        res.json({"message":errors});
+        res.json({"message":errors}, 401);
         return;
     }
-    res.code = 200;
-    res.json({'nonce_token':"ff6bfd673ab6ae03d8911"});
+    res.json({'nonce_token':"ff6bfd673ab6ae03d8911"}, 200);
 
 });
 
